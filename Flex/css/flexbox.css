@@ -1,0 +1,201 @@
+.cabecalhoPrincipal .container{
+
+    display: flex;
+   justify-content: space-between; /*Para separar os item de dentro de um container.*/
+    align-items: center; /*PARA ALINHAMENTO VERTICALMENTE, eixo vertical*/
+}
+
+.cabecalhoPrincipal .container .cabecalhoPrincipal-nav{
+   
+    display: flex;
+}
+
+.rodapePrincipal-patrocinadores .container{
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.rodapePrincipal-patrocinadores-list{
+
+    display: flex;
+    align-items: center; /*Alinhamento vertical*/
+    justify-content: space-between;
+
+    width: 70%;
+    margin-right: 5%;
+   
+   
+}
+
+.rodapePrincipal-contatoForm{
+
+    width: 25%;
+}
+
+.rodapePrincipal-contatoForm-fieldset{
+
+    display: flex; /*Caso interessante o button ficou com mesma height que o input, se encaixando certinho.
+    
+      ou seja, os filhos que estão nesse container ficaram com exatamente o mesmo tamaho.  */
+      /*Sempre lembre-se disso: Os filhos que estão dentro de um container com display flex, irão ficar com a mesma altura.*/
+}
+
+
+.rodapePrincipal-navMap-list{
+
+    display: flex;
+    flex-direction: column;
+    height: 255px;
+    flex-wrap: wrap;
+}
+
+.conteudoPrincipal-cursos{
+    display: flex;
+    flex-wrap: wrap; /*Quando não caber em um linha ele quebrar para a próxima*/
+    
+    
+}
+.conteudoPrincipal-cursos-link{
+    width: 20%;
+}
+
+
+
+
+/*Múltiplos de 4: , 4, 8,12,16 e vamos tirar a marging a direita*/
+.conteudoPrincipal-cursos-link:nth-child(4n){
+    margin-right: 0;
+}
+
+/*Agora precisamos pegar no 1 elmento, 5, 9,13*/
+/*São elmentos que vêm logo depois do múltiplo de 4 depois do 4 vêm o 5, depois do 8 vêm o 9*/
+/*Quando ele faz essa conta, ele conta também  faz a seguinte conta
+4x0 + 1 = 1; ou seja ele agente o primeiro elemntos também*/
+.conteudoPrincipal-cursos-link:nth-child(4n + 1){
+    margin-left: 0;
+}
+
+
+
+.videoSobre .container{
+
+    display: flex;
+    
+}
+
+.videoSobre-sobre{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    /*flex-grow: olha você flex item eu quereo que você CRESÇA
+    O TAMANHO QUE SOBROU NA PÁGINA*/
+
+    /*Pense que espaço vazio pode ser distribuído com
+    flex-grow*/
+}
+
+
+/*Espaço vazio foi incorporado a lista, jogando o button
+para baixo*/
+.videoSobre-sobre-list{
+
+    flex-grow: 1;
+}
+
+
+/*Fazendo o vídeo crescer um pouco mais*/
+.videoSobre-video{
+
+    flex-grow: 1;
+}
+
+/*Flex-itens irão ficar com a mesma altura, quando colocar
+display: flex no pai*/
+
+/*Reponsividade: Mobile: Mínimo 320px*/
+@media screen and (max-width:768px) {
+    .cabecalhoPrincipal-nav{
+
+        flex-direction: column;
+       
+    }
+
+    .cabecalhoPrincipal .container{
+        flex-direction: column;
+        align-items: initial;
+        /*Para alinhar texto, usamos o clássico text-align*/
+        text-align: center;
+    }
+    .conteudoPrincipal-cursos{
+        flex-direction: column;
+    }
+    .conteudoPrincipal-cursos-link{
+
+        width: 100%;
+        
+    }
+
+    .rodapePrincipal-navMap-list{
+        
+        height: auto;
+    } 
+
+    .rodapePrincipal-patrocinadores .container{
+        flex-direction: column;
+        align-items: center;
+    }
+    .rodapePrincipal-patrocinadores-list{
+        margin: 0;
+        width: 100%;
+    }
+    .rodapePrincipal-contatoForm{
+        width: 100%;
+    }
+
+    .rodapePrincipal-contatoForm-fieldset{
+        justify-content: center;
+    }
+
+
+    /*ícone mais importante é : NOSSO APP, COMO COLOCAR
+    ELE PARA CIMA? COM CSS*/
+
+    /*MUDAR AS ORDENS DO ITENS COM CSS*/
+
+    /*Tag pai - flex container, tags dentor do pai
+    flex itens, com flex podemos mudar as ordens dos elementos*/
+    .cabecalhoPrincipal-nav-link-app{
+        order: -1;/*Coloca um número menor que 0*/
+    }
+
+    .videoSobre-video{
+        flex-shrink: 2;
+    }
+    
+    .videoSobre .container{
+        flex-direction: column;
+    }
+
+    .videoSobre-video{
+        margin: 0 auto  ;
+    }
+
+
+    /*Existe o oposto do flex-grow, flex-shrik*/
+}
+
+/*Secredo do mobile e colocar flex-direction:colunm*/
+/*FUNDAMENTAL LEMBAR SOBRE FLEX:
+* Quando o flex direction está no row:
+Main-axe: justify-contente
+Cross-axe: align-itens
+
+*Quando o flex direction está no colonn:
+Main-axe: justify-contente - só que o Main - seria vertical agora
+Cross-axe: align-itens - So que o Cross -seria horizontal
+
+
+*/
